@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {TrenComponent} from '../tren/tren.component';
-import {OrigenComponent} from '../origen/origen.component';
+import {Localidad, OrigenComponent} from '../origen/origen.component';
 import {DatePipe} from '@angular/common';
 
 @Component({
@@ -35,4 +35,7 @@ export class TrayectoComponent {
     this.viajero.apellido1 = ($event.target as HTMLInputElement).value;
   }
 
+  filtrarTrenes($event: Localidad) {
+    console.log($event);
+  }
 }

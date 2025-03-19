@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 const LOCALIDADES = [{id: 1, name: 'Madrid'}, {id: 2, name: 'Barcelona'}]
 
@@ -18,6 +18,9 @@ const LOCALIDADES = [{id: 1, name: 'Madrid'}, {id: 2, name: 'Barcelona'}]
 })
 export class OrigenComponent {
 
+  @Output()
+  localidad: EventEmitter<Localidad> = new EventEmitter();
+
   localidadSeleccionada?: Localidad
 
   origen(event: any) {
@@ -29,10 +32,11 @@ export class OrigenComponent {
   seleccionar(localidad: { id: number; name: string }) {
     console.log(localidad);
     this.localidadSeleccionada = localidad;
+    this.localidad.emit(localidad);
   }
 }
 
-interface Localidad {
+export interface Localidad {
   id: number;
   name: string
 }

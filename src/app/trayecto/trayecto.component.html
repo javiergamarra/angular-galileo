@@ -22,7 +22,7 @@
 <label>Fecha de Nacimiento</label>
 <p>{{ viajero.fechaNacimiento | date:'dd/MM/yyyy' }}</p>
 
-<app-origen></app-origen>
+<app-origen (localidad)="filtrarTrenes($event)"></app-origen>
 
 
 <div>
