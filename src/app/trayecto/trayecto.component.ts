@@ -16,4 +16,7 @@ export class TrayectoComponent {
     }, 2000)
   }
 
+  enviar() {
+    console.log('Enviando...');
+  }
 }
