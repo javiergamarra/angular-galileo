@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-trayecto',
@@ -9,5 +9,11 @@ import { Component } from '@angular/core';
 export class TrayectoComponent {
 
   viajero = {nombre: "Javier"};
+
+  constructor() {
+    setInterval(() => {
+      this.viajero.nombre = '' + Math.random();
+    }, 2000)
+  }
 
 }
