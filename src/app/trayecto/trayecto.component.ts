@@ -1,10 +1,12 @@
 import {Component} from '@angular/core';
 import {TrenComponent} from '../tren/tren.component';
+import {OrigenComponent} from '../origen/origen.component';
 
 @Component({
   selector: 'app-trayecto',
   imports: [
-    TrenComponent
+    TrenComponent,
+    OrigenComponent
   ],
   templateUrl: './trayecto.component.html',
   styleUrl: './trayecto.component.css'
