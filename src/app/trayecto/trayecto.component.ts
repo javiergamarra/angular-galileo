@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {TrenComponent} from '../tren/tren.component';
 import {Localidad, OrigenComponent} from '../origen/origen.component';
 import {DatePipe} from '@angular/common';
+import {TrenesService} from '../trenes.service';
 
 @Component({
   selector: 'app-trayecto',
@@ -17,9 +18,10 @@ export class TrayectoComponent {
 
   viajero = {nombre: '', apellido1: '', fechaNacimiento: new Date()};
 
-  trenes = [{nombre: 'Tren 1', id: 1}, {nombre: 'Tren 2', id: 2}, {nombre: 'Tren 3', id: 3}];
+  trenes;
 
-  constructor() {
+  constructor(private trenesService: TrenesService) {
+    this.trenes = this.trenesService.getTrenes()
   }
 
   enviar() {
