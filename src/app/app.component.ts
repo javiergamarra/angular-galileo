@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import {TrayectoComponent} from './trayecto/trayecto.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TrayectoComponent],
+  imports: [TrayectoComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
