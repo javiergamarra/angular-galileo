@@ -1,6 +1,10 @@
-<p [style.color]="+viajero.nombre > 0.5 ? 'blue' : 'red'">
+<label>Nombre</label>
+
+<input (keyup)="nombre($event)">
+
+<span [style.color]="viajero.nombre.length < 3 ? 'red': ''">
   {{ viajero.nombre }}
-</p>
+</span>
 
 <div>
   <button (click)="enviar()">Enviar</button>

@@ -8,15 +8,18 @@ import {Component} from '@angular/core';
 })
 export class TrayectoComponent {
 
-  viajero = {nombre: "Javier"};
+  viajero = {nombre: ''};
 
   constructor() {
-    setInterval(() => {
-      this.viajero.nombre = '' + Math.random();
-    }, 2000)
   }
 
   enviar() {
-    console.log('Enviando...');
+    console.log(this.viajero);
   }
+
+  nombre($event: KeyboardEvent) {
+    const element = $event.target as HTMLInputElement
+    this.viajero.nombre = element.value;
+  }
+
 }
