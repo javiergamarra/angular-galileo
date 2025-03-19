@@ -6,6 +6,19 @@
   {{ viajero.nombre }}
 </span>
 
+
+<div>
+  <label>Primer Apellido</label>
+
+  <span>
+  <input (keyup)="apellido1($event)">
+</span>
+
+  @if (viajero.apellido1.length < 3) {
+    <span>Los apellidos no pueden ser nulos</span>
+  }
+</div>
+
 <div>
   <button (click)="enviar()">Enviar</button>
 </div>

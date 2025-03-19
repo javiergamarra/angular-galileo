@@ -8,7 +8,7 @@ import {Component} from '@angular/core';
 })
 export class TrayectoComponent {
 
-  viajero = {nombre: ''};
+  viajero = {nombre: '', apellido1: ''};
 
   constructor() {
   }
@@ -20,6 +20,10 @@ export class TrayectoComponent {
   nombre($event: KeyboardEvent) {
     const element = $event.target as HTMLInputElement
     this.viajero.nombre = element.value;
+  }
+
+  apellido1($event: KeyboardEvent) {
+    this.viajero.apellido1 = ($event.target as HTMLInputElement).value;
   }
 
 }
