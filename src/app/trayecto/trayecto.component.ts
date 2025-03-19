@@ -1,19 +1,21 @@
 import {Component} from '@angular/core';
 import {TrenComponent} from '../tren/tren.component';
 import {OrigenComponent} from '../origen/origen.component';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-trayecto',
   imports: [
     TrenComponent,
-    OrigenComponent
+    OrigenComponent,
+    DatePipe
   ],
   templateUrl: './trayecto.component.html',
   styleUrl: './trayecto.component.css'
 })
 export class TrayectoComponent {
 
-  viajero = {nombre: '', apellido1: ''};
+  viajero = {nombre: '', apellido1: '', fechaNacimiento: new Date()};
 
   trenes = [{nombre: 'Tren 1', id: 1}, {nombre: 'Tren 2', id: 2}, {nombre: 'Tren 3', id: 3}];
 
