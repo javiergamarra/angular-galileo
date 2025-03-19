@@ -10,6 +10,8 @@ export class TrayectoComponent {
 
   viajero = {nombre: '', apellido1: ''};
 
+  trenes = [{nombre: 'Tren 1', id: 1}, {nombre: 'Tren 2', id: 2}, {nombre: 'Tren 3', id: 3}];
+
   constructor() {
   }
 
