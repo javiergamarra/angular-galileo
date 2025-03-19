@@ -22,9 +22,7 @@
 
 <div>
   @for (tren of trenes; track tren.id) {
-    <p>
-      <label>{{ tren.nombre }}</label>
-    </p>
+    <app-tren [tren]="tren"></app-tren>
   }
 </div>
 

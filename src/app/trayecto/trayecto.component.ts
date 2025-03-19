@@ -1,8 +1,11 @@
 import {Component} from '@angular/core';
+import {TrenComponent} from '../tren/tren.component';
 
 @Component({
   selector: 'app-trayecto',
-  imports: [],
+  imports: [
+    TrenComponent
+  ],
   templateUrl: './trayecto.component.html',
   styleUrl: './trayecto.component.css'
 })
