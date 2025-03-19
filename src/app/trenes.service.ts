@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TrenesService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   getTrenes() {
-    return [{nombre: 'Tren 1', id: 1}, {nombre: 'Tren 2', id: 2}, {nombre: 'Tren 3', id: 3}];
+    return this.httpClient.get(`https://swapi.dev/api/people`).toPromise().then((x:any) => x.results);
   }
 }

@@ -18,10 +18,10 @@ export class TrayectoComponent {
 
   viajero = {nombre: '', apellido1: '', fechaNacimiento: new Date()};
 
-  trenes;
+  trenes?: any[]
 
   constructor(private trenesService: TrenesService) {
-    this.trenes = this.trenesService.getTrenes()
+    this.trenesService.getTrenes().then(x => this.trenes = x);
   }
 
   enviar() {

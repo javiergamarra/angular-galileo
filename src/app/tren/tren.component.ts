@@ -5,13 +5,13 @@ import {Component, Input} from '@angular/core';
   imports: [],
   template: `
     <p>
-      <label>{{ tren.nombre }}</label>
+      <label>{{ tren.name }}</label>
     </p>`,
   styleUrl: './tren.component.css'
 })
 export class TrenComponent {
 
   @Input()
-  tren = {nombre: '', id: 0};
+  tren = {name: '', id: 0};
 
 }
