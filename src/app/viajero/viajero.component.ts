@@ -9,9 +9,9 @@ import {FormsModule} from '@angular/forms';
   template: `
     <form #f="ngForm" (ngSubmit)="submit(f)">
       <label>Nombre:</label>
-      <input type="text" name="nombre" ngModel>
+      <input type="text" name="nombre" ngModel required>
 
-      <button>Enviar!</button>
+      <button [disabled]="!f.valid">Enviar!</button>
 
     </form>
 
