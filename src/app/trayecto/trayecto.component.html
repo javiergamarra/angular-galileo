@@ -26,7 +26,7 @@
 
 
 <div>
-  @for (tren of trenes; track tren.id) {
+  @for (tren of trenes$ | async; track tren.id) {
     <app-tren [tren]="tren"></app-tren>
   }
 </div>

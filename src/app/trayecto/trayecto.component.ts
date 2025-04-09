@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {TrenComponent} from '../tren/tren.component';
 import {Localidad, OrigenComponent} from '../origen/origen.component';
-import {DatePipe} from '@angular/common';
+import {AsyncPipe, DatePipe} from '@angular/common';
 import {TrenesService} from '../trenes.service';
 
 @Component({
@@ -9,7 +9,8 @@ import {TrenesService} from '../trenes.service';
   imports: [
     TrenComponent,
     OrigenComponent,
-    DatePipe
+    DatePipe,
+    AsyncPipe
   ],
   templateUrl: './trayecto.component.html',
   styleUrl: './trayecto.component.css'
@@ -18,10 +19,10 @@ export class TrayectoComponent {
 
   viajero = {nombre: '', apellido1: '', fechaNacimiento: new Date()};
 
-  trenes?: any[]
+  trenes$?: Promise<any>
 
   constructor(private trenesService: TrenesService) {
-    this.trenesService.getTrenes().then(x => this.trenes = x);
+    this.trenes$ = this.trenesService.getTrenes();
   }
 
   enviar() {
