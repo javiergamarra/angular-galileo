@@ -1,4 +1,5 @@
-import {Component, computed, signal} from '@angular/core';
+import {Component, computed, effect, resource, signal} from '@angular/core';
+import {TrenesService} from '../trenes.service';
 
 @Component({
   selector: 'app-login2',
@@ -15,8 +16,25 @@ export class Login2Component {
   usuario = signal('');
   usuarioMayusculas
 
-  constructor() {
+  trenesResource
+  trenes
+
+  constructor(private trenesService: TrenesService) {
     this.usuarioMayusculas = computed(() => this.usuario().toUpperCase())
+
+    this.trenesResource = resource({
+      loader: () => {
+        return this.trenesService.getTrenes();
+      }
+    });
+
+    effect(() => {
+      console.log("Value: ", this.trenesResource.value());
+      console.log("Status: ", this.trenesResource.status());
+      console.log("Error: ", this.trenesResource.error());
+    })
+
+    this.trenes = computed(() => this.trenesResource.value())
   }
 
   enviar($event: any) {
